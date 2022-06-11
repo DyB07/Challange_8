@@ -45,6 +45,6 @@ function apply(app) {
   app.use(applicationController.handleError);
 
   return app;
-};
+}
 
 module.exports = { apply, }

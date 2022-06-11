@@ -1,5 +1,6 @@
 const { Op } = require("sequelize");
 const ApplicationController = require("./ApplicationController");
+const CarAlreadyRentedError = require("../errors/CarAlreadyRentedError");
 
 class CarController extends ApplicationController {
   constructor({ carModel, userCarModel, dayjs }) {
@@ -80,7 +81,7 @@ class CarController extends ApplicationController {
         }
       });
 
-      if (!!activeRent) {
+      if (activeRent) {
         const err = new CarAlreadyRentedError(car);
         res.status(422).json(err)
         return;
@@ -153,8 +154,8 @@ class CarController extends ApplicationController {
       required: false,
     }
 
-    if (!!size) where.size = size;
-    if (!!availableAt) {
+    if (size) where.size = size;
+    if (availableAt) {
       include.where = {
         rentEndedAt: {
           [Op.gte]: availableAt, 

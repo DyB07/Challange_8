@@ -1,6 +1,7 @@
 const ApplicationController = require("./ApplicationController");
-const { EmailNotRegisteredError, InsufficientAccessError, RecordNotFoundError, WrongPasswordError } = require("../errors");
+const { EmailNotRegisteredError, InsufficientAccessError, RecordNotFoundError, WrongPasswordError, EmailAlreadyTakenError } = require("../errors");
 const { JWT_SIGNATURE_KEY } = require("../../config/application");
+
 
 class AuthenticationController extends ApplicationController {
   constructor({
@@ -89,7 +90,7 @@ class AuthenticationController extends ApplicationController {
       const password = req.body.password;
       let existingUser = await this.userModel.findOne({ where: { email, }, });
 
-      if (!!existingUser) {
+      if (existingUser) {
         const err = new EmailAlreadyTakenError(email);
         res.status(422).json(err);
         return;
