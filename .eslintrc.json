@@ -9,5 +9,12 @@
         "sourceType": "module"
     },
     "rules": {
-        "no-undef" : "off"    }
+        "no-undef" : "off",
+        "linebreak-style" : 0,
+        "indent" : "off",
+        "no-unused-vars": "off",
+        "class-methods-use-this": ["error", {"enforceForClassFields": false}],
+        "import/no-dynamic-require" : "off",
+        "global-require": "off"
+    }
 }

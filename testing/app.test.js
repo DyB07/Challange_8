@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 const request = require("supertest");
-const app = require("../../app");
+const app = require("../app");
 
 describe("GET /", () => {
     it("should return 200 OK", async () => {

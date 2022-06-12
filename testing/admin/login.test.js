@@ -3,10 +3,10 @@ const request = require("supertest");
 const app = require("../../app");
 
 describe("POST /v1/auth/login", () => {
-    const email = "User1@gmail.com";
+    const email = "personal@gmail.com";
     const password = "123456";
     const wrongEmail = "wrong@gmail.com";
-    const wrongPassword = "123";
+    const wrongPassword = "123456";
 
     it("should response with 201 as status code", async () => {
         return request(app)

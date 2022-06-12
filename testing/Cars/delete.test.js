@@ -12,7 +12,7 @@ describe("DELETE /v1/cars/:id", () => {
         });
 
         accessTokenCustomer = await request(app).post("/v1/auth/login").send({
-            email: "User1@gmail.com",
+            email: "personal@gmail.com",
             password: "123456",
         });
 

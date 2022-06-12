@@ -39,7 +39,7 @@ describe("POST /v1/create", () => {
 
     it("should response with 401 as status code", async () => {
         const accessToken = await request(app).post("/v1/auth/login").send({
-            email: "User1@gmail.com",
+            email: "personal@gmail.com",
             password: "123456",
         });
 

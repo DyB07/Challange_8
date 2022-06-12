@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 const {Role} = require("../../app/models");
 
 const names = 
-  ["User", 
+  ["personal", 
     "Fikri", 
     "Brian", 
     "Ranggawarsita", 
@@ -22,7 +22,7 @@ module.exports = {
       [
         {
           name: "User",
-          email: `User1@gmail.com`,
+          email: `personal@gmail.com`,
           encryptedPassword,
           roleId: 1,
           createdAt: timestamp,
